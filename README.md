@@ -28,3 +28,13 @@ yarn dev
 ```bash
 typeorm migration:create ./apps/api/migrations/{NameOfMigration}
 ```
+
+
+# Project resources overview
+
+| Resource    | Description          | Technology  | Address                   |
+|-------------|----------------------|-------------|---------------------------|
+| Portal      | Monorepo Portal      | React       | http://localhost:4000     |
+| API         | Monorepo API         | NestJS      | http://localhost:4001     |
+| API Swagger | Monorepo API Swagger | Swagger     | http://localhost:4001/api |
+| DB          | Monorepo Database    | PostgresSQL | localhost:5432            |

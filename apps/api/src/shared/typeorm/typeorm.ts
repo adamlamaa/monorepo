@@ -1,14 +1,15 @@
 import { DataSource, DataSourceOptions } from "typeorm"
-import migrationModules from "../../../../migrations"
+import migrationModules from "../../../migrations"
 import entities from "./entities"
+import envTyped from "../envTyped"
 
 export const dataSourceOptions = {
   type: "postgres",
-  host: process.env.DB_HOST ?? "localhost",
-  port: process.env.DB_PORT ? +process.env.DB_PORT : 5432,
-  username: process.env.DB_USER ?? "postgres",
-  password: process.env.DB_PASSWORD ?? "postgres",
-  database: process.env.DB_NAME ?? "monorepo",
+  host: envTyped.database.host,
+  port: envTyped.database.port,
+  username: envTyped.database.username,
+  password: envTyped.database.password,
+  database: envTyped.database.name,
   synchronize: false,
   migrationsRun: false,
   entities: entities,

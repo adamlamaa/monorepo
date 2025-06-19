@@ -4,10 +4,11 @@ import { UserRepository } from "./user.repository"
 import { UserController } from "./user.controller"
 import { User } from "./types/user.entity"
 import { UserService } from "./user.service"
+import { WinstonModule } from "nest-winston"
 
 @Module({
   controllers: [UserController],
-  imports: [TypeOrmModule.forFeature([User])],
+  imports: [TypeOrmModule.forFeature([User]), WinstonModule],
   providers: [UserService, UserRepository],
 })
 export class UserModule {}

@@ -21,18 +21,23 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm": "typeorm-ts-node-commonjs",
-    "migration:run": "npm run typeorm -- migration:run -d src/shared/infrastructure/config/typeorm.ts"
+    "migration:run": "npm run typeorm -- migration:run -d src/shared/typeorm/typeorm.ts",
+    "@nestjs/swagger": "11.2.0"
   },
   "dependencies": {
     "@nestjs/class-validator": "0.13.4",
-    "@nestjs/common": "11.0.1",
+    "@nestjs/common": "11.1.3",
     "@nestjs/core": "11.0.1",
     "@nestjs/platform-express": "11.0.1",
     "@nestjs/typeorm": "11.0.0",
     "pg": "8.16.0",
     "reflect-metadata": "0.2.2",
     "rxjs": "7.8.1",
-    "typeorm": "0.3.24"
+    "typeorm": "0.3.24",
+    "zod": "3.25.64",
+    "winston": "3.17.0",
+    "nest-winston": "1.10.2",
+    "@nestjs/swagger": "11.2.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.2.0",
@@ -59,7 +64,8 @@
     "ts-node": "10.9.2",
     "tsconfig-paths": "4.2.0",
     "typescript": "5.7.3",
-    "typescript-eslint": "8.20.0"
+    "typescript-eslint": "8.20.0",
+    "@faker-js/faker": "9.8.0"
   },
   "jest": {
     "moduleFileExtensions": [
