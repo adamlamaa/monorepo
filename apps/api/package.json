@@ -21,8 +21,13 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm": "typeorm-ts-node-commonjs",
-    "migration:run": "npm run typeorm -- migration:run -d src/shared/typeorm/typeorm.ts",
-    "@nestjs/swagger": "11.2.0"
+    "migration:create": "typeorm migration:create ./migrations/$npm_config_name",
+    "migration:generate": "npm run typeorm -- migration:generate -d ./src/shared/typeorm/typeorm.ts ./migrations/$npm_config_name",
+    "migration:run": "npm run typeorm -- migration:run -d ./src/shared/typeorm/typeorm.ts",
+    "db:create": "docker-compose up -d",
+    "db:start": "npm run db:create && npm run migration:run",
+    "db:destroy": "docker stop monorepo-api-db && docker rm monorepo-api-db && docker volume rm monorepo_postgres_data",
+    "db:reset": "npm run db:destroy && npm run db:start"
   },
   "dependencies": {
     "@nestjs/class-validator": "0.13.4",
