@@ -9,7 +9,7 @@ import {
 
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn("uuid", { primaryKeyConstraintName: "PK_Users_id" })
   id: string
 
   @Column()
